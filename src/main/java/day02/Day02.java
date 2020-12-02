@@ -20,12 +20,7 @@ public class Day02 {
             char policyKey = inputSplitSpace[1].charAt(0);
             String password = inputSplitSpace[2];
 
-            int policyKeyCount = 0;
-            for (char c : password.toCharArray()) {
-                policyKeyCount += c == policyKey ? 1 : 0;
-            }
-
-            validCount += (policyKeyCount <= highRange && policyKeyCount >= lowRange ? 1 : 0);
+            validCount += ((password.charAt(lowRange - 1) == policyKey) ^ (password.charAt(highRange - 1) == policyKey)) ? 1 : 0;
         }
 
         System.out.println(validCount);
